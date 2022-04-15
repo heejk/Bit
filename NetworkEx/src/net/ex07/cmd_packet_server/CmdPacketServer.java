@@ -1,0 +1,122 @@
+package net.ex07.cmd_packet_server;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+/*
+ [ Application Layer의 약속을 정의 (프로토콜 정의 = 패킷 설계) ]
+ - 패킷 설계
+ 1) 고정 길이
+ 2) 구분자 방식
+ 3) 고정 길이 헤더 + 가변 길이 데이터  
+ 4) 포멧 (JSON, xml, ...)
+ 
+ cmd|값0|값1
+ cmd: 해당 패킷이 어떤 의미인지를 알려주는 용도
+ cmd에 따라 값0과 값1의 처리가 달라질 수 있음
+ ex. 긴급알림: A|코로나 조심하세요
+  	 위치데이터: P|253.34|345.23|553.2 	(위도|경도|고도)
+  	 캐릭터아이템: I|엑스칼리버|물약|물약|단검
+  	 주기위치전송: P|I|253.34|345.23|553.2 		Position > Interval
+  	 긴급위치전송: P|E|253.34|345.23|553.2 		Position > Emergency
+ */
+
+/*
+  사칙연산을 서버와 클라이언트 간 약속으로 정하여 
+  클라이언트는 연산 종류와 2개의 값을 서버로 전송
+  서버는 수신된 데이터를 토대로 결과를 계산해서 클라이언트로 전송
+  +|35|24 	> 서버로 전송 
+  59		> 서버는 응답을 클라이언트로 전송 
+  *|3|4		> 서버로 전송
+  12		> 서버는 응답을 클라이언트로 전송 
+ */
+
+public class CmdPacketServer { // 구분자 방식  
+	
+	final static int PORT = 9000;
+	
+	public static String[] parsePacket (String line) {
+		String[] params = line.split("\\|");
+		return params;
+	}
+	
+	public static String runArithCmd(String[] params) {
+		int result = 0;
+		String cmd = params[0]; 
+		int num1 = Integer.parseInt(params[1]);
+		int num2 = Integer.parseInt(params[2]);
+		
+		switch (cmd) {
+		case "+": 
+			result = num1 + num2;
+			break;
+		case "-": 
+			result = num1 - num2;
+			break;
+		case "*": 
+			result = num1 * num2;
+			break;
+		case "/": 
+			result = num1 / num2;
+			break;
+		}
+		return result + "";
+		
+	}
+	
+	public static void main(String[] args) {
+		try {
+			ServerSocket serverSocket = new ServerSocket(PORT);
+			
+			System.out.println("Wait client...");
+			Socket conSocket = serverSocket.accept();
+			
+			InetAddress inetAddr = conSocket.getInetAddress();
+			System.out.println("Connect " + inetAddr.getHostAddress());
+			
+			OutputStream out = conSocket.getOutputStream();
+			OutputStreamWriter outW = new OutputStreamWriter(out);
+			PrintWriter pw = new PrintWriter(outW);
+			
+			InputStream in = conSocket.getInputStream();
+			InputStreamReader inR = new InputStreamReader(in);
+			BufferedReader br = new BufferedReader(inR);
+			
+			while (true) {
+				// 클라이언트가 보내온 전체 패킷을 수신
+				String line = br.readLine();
+				
+				if (line == null) {
+					System.out.println("Disconect Client !");
+					break;
+				}
+				
+				System.out.println("Received Data: " + line);
+				
+				String[] params = parsePacket(line);
+				String result = runArithCmd(params);
+				System.out.printf("%s %s %s = %s\n", params[1], params[0], params[2], result);
+				
+				// 클라이언트로 결과 전송
+				pw.println(result);
+				pw.flush();
+			}
+			
+			pw.close();
+			br.close();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}

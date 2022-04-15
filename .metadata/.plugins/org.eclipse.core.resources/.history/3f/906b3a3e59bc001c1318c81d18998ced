@@ -1,0 +1,9 @@
+package net.ex04.file_client;
+
+public class FileServer {
+
+	public static void main(String[] args) {
+
+	}
+
+}

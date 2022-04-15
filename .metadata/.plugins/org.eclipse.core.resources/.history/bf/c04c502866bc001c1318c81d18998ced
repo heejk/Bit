@@ -1,0 +1,10 @@
+package net.ex06.multi_thread_client;
+
+public class EchoLoopClient {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

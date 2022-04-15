@@ -1,0 +1,9 @@
+package net.ex08.cmd_packet_client;
+
+public class CmdPacketClient {
+
+	public static void main(String[] args) {
+
+	}
+
+}

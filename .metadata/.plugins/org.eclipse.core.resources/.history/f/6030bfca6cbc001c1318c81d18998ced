@@ -1,0 +1,10 @@
+package net.ex07.cmd_packet_server;
+
+public class CmdPacketServer {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

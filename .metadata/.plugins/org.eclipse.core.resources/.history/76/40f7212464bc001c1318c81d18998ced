@@ -1,0 +1,25 @@
+package net.ex05.multi_thread_server;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+
+/*
+ [ 멀티 스레드 동기 서버 ]
+ - 장점: 실시간으로 여러 클라이언트에 대응 가능
+ - 단점: 클라이언트의 증가에 따라 스레드도 증가 
+ 		ㄴ 스레드 증가 > 스케줄링에 영향 > Conext Switching 많이 발생 > 반응속도 저하 (Apache Server 특징)
+ */
+
+public class MultiThreadEchoServer {
+	final static int PORT = 9000;
+	
+	public static void main(String[] args) {
+		try {
+			ServerSocket serverSocket = new ServerSocket(PORT);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

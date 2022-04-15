@@ -1,0 +1,27 @@
+package net.ex07.cmd_packet_server;
+
+/*
+ [ Application Layer의 약속을 정의 (프로토콜 정의 = 패킷 설계) ]
+ - 패킷 설계
+ 1) 고정 길이
+ 2) 구분자 방식
+ 3) 고정 길이 헤더 + 가변 길이 데이터  
+ 4) 포멧 (JSON, xml, ...)
+ 
+ cmd|값0|값1
+ cmd: 해당 패킷이 어떤 의미인지를 알려주는 용도
+ cmd에 따라 값0과 값1의 처리가 달라질 수 있음
+ ex. 긴급알림: A|코로나 조심하세요
+  	 위치데이터: P|253.34|345.23|553.2 	(위도|경도|고도)
+  	 캐릭터아이템: I|엑스칼리버|물약|물약|단검
+  	 주기위치전송: P|I|253.34|345.23|553.2 		Position > Interval
+  	 긴급위치전송: P|E|253.34|345.23|553.2 		Position > Emergency
+ */
+
+public class CmdPacketServer { // 구분자 방식 
+
+	public static void main(String[] args) {
+
+	}
+
+}

@@ -1,0 +1,17 @@
+package net.ex07.cmd_packet_server;
+
+/*
+ [ Application Layer의 약속을 정의 (프로토콜 정의 = 패킷 설계) ]
+ - 패킷 설계
+ 1) 고정길이
+ 2) 구분자 방식
+ 3) 고정 길이 헤더 + 가변 길이 데이터 
+ */
+
+public class CmdPacketServer {
+
+	public static void main(String[] args) {
+
+	}
+
+}
