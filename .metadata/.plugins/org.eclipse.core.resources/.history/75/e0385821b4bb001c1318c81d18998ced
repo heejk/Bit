@@ -1,0 +1,10 @@
+package thread.ex04.thread_implements;
+
+public class ThreadImplements {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

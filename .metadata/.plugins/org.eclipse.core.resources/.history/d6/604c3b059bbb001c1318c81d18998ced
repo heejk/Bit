@@ -1,0 +1,10 @@
+package fileio.ex06.char_writer_stream;
+
+public class CharWriterStream {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

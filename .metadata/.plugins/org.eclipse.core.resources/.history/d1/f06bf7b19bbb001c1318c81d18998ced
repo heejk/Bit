@@ -1,0 +1,10 @@
+package fileio.ex07.char_reader_stream;
+
+public class CharReaderStream {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,10 @@
+package fileio.ex09.buffered_reader;
+
+public class StringBufferedReader {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

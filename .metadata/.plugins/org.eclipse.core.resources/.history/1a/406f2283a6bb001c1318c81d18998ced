@@ -1,0 +1,10 @@
+package thread.ex03.thread_ex;
+
+public class ThreadEx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

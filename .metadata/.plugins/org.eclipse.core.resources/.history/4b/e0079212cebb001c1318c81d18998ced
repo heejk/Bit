@@ -1,0 +1,10 @@
+package net.ex01.echo_server;
+
+public class EchoServer {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

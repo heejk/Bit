@@ -1,0 +1,10 @@
+package thread.ex05.thread_need_join;
+
+public class ThreadNeedJoin {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,10 @@
+package fileio.ex10.print_writer_stream;
+
+public class PrintWriterStream {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

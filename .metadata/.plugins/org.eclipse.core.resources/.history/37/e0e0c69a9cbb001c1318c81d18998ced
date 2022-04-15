@@ -1,0 +1,10 @@
+package fileio.ex08.buffered_writer;
+
+public class StringBufferedWriter {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

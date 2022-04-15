@@ -1,0 +1,10 @@
+package net.ex02.echo_client;
+
+public class EchoClient {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

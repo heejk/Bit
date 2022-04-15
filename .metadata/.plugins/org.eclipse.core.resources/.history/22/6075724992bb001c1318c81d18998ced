@@ -1,0 +1,10 @@
+package fileio.ex02.bufferfilecopy;
+
+public class BufferFIleCopy {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

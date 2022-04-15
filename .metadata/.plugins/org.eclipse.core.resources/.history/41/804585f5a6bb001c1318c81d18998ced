@@ -1,0 +1,29 @@
+package thread.ex03.thread_ex;
+
+class Study extends Thread {
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+	}
+	
+}
+
+class Music extends Thread {
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+	}
+	
+}
+
+public class ThreadEx {
+
+	public static void main(String[] args) {
+
+	}
+
+}
